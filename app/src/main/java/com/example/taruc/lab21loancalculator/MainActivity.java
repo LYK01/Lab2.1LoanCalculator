@@ -20,19 +20,22 @@ public class MainActivity extends AppCompatActivity {
 
         editTextPrice = (EditText) findViewById(R.id.editTextPrice);
         editTextDownpayment = (EditText) findViewById(R.id.editTextDownpayment);
-
+        editTextInterest = (EditText) findViewById(R.id.editTextInterest);
+        editTextRepayment = (EditText) findViewById(R.id.editTextRepayment);
+        editTextSalary = (EditText) findViewById(R.id.editTextSalary);
     }
 
     public void calculateLoan(View view){
         //TODO: calculate monthly payment and determine the loan status
         double monthlyPayment = 0;
         String status = "Approved";
+
         monthlyPayment=((Double.parseDouble(editTextPrice.getText().toString())-Double.parseDouble(editTextDownpayment.getText().toString()))
                 +((Double.parseDouble(editTextPrice.getText().toString())-Double.parseDouble(editTextDownpayment.getText().toString()))
-                *Double.parseDouble(editTextInterest.getText().toString())*(Double.parseDouble(editTextRepayment.getText().toString())/12)))/
+                *(Double.parseDouble(editTextInterest.getText().toString())/100)*(Double.parseDouble(editTextRepayment.getText().toString())/12)))/
                 (Double.parseDouble(editTextRepayment.getText().toString()));
 
-        if(Double.parseDouble(editTextSalary.getText().toString()) > Double.parseDouble(editTextSalary.getText().toString())* 0.3)
+        if(monthlyPayment > Double.parseDouble(editTextSalary.getText().toString())* 0.3)
             status = "Rejected";
 
         //Create an Explicit Intent
