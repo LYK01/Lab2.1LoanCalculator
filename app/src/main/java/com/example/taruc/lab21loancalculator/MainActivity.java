@@ -46,4 +46,11 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(LOAN_STATUS, status);
         startActivity(intent);
     }
+    public void resetActivity(View view){
+        editTextPrice.setText("");
+        editTextDownpayment.setText("");
+        editTextRepayment.setText("");
+        editTextInterest.setText("");
+        editTextSalary.setText("");
+    }
 }

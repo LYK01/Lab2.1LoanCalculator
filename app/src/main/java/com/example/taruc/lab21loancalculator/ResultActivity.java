@@ -33,4 +33,6 @@ public class ResultActivity extends AppCompatActivity {
         //Terminate the current activity
         finish();
     }
+
+
 }
